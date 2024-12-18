@@ -676,8 +676,7 @@
 <a href="#675" id="675">675</a>
 <a href="#676" id="676">676</a>
 <a href="#677" id="677">677</a>
-<a href="#678" id="678">678</a>
-<a href="#679" id="679">679</a></pre></div><pre class="rust"><code><span class="comment">// SPDX-License-Identifier: BSD-2-Clause
+<a href="#678" id="678">678</a></pre></div><pre class="rust"><code><span class="comment">// SPDX-License-Identifier: BSD-2-Clause
 /*
  * context.rs - CoAP context related code.
  * This file is part of the libcoap-rs crate, see the README and LICENSE files for
@@ -1325,8 +1324,7 @@
         // [as_mut_context()] contracts (we check validity of the pointer on construction).
         // Passing a NULL handler/None to coap_register_event_handler() is allowed as per the
         // documentation.
-        </span><span class="kw">let </span>a = <span class="number">1</span>.clone();
-        <span class="kw">unsafe </span>{
+        </span><span class="kw">unsafe </span>{
             coap_register_event_handler(<span class="self">self</span>.raw_context, <span class="prelude-val">None</span>);
         }
         <span class="kw">for </span>session <span class="kw">in </span>std::mem::take(<span class="kw-2">&amp;mut </span><span class="self">self</span>.server_sessions).into_iter() {

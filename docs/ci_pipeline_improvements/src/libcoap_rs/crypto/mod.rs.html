@@ -154,7 +154,7 @@
 /// The available enum variants depend on the enabled DTLS features (`dtls-psk`, `dtls-pki`, and/or
 /// `dtls-rpk`).
 </span><span class="attr">#[derive(Clone, Debug)]
-</span><span class="kw">pub enum </span>ClientCryptoContext&lt; <span class="lifetime">'a </span>&gt; {
+</span><span class="kw">pub enum </span>ClientCryptoContext&lt;<span class="lifetime">'a</span>&gt; {
     <span class="doccomment">/// Context for a client-side DTLS session with pre-shared keys.
     </span><span class="attr">#[cfg(feature = <span class="string">"dtls-psk"</span>)]
     </span>Psk(psk::ClientPskContext&lt;<span class="lifetime">'a</span>&gt;),
