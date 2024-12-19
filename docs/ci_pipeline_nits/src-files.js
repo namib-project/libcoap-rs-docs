@@ -1,3 +1,0 @@
-var srcIndex = new Map(JSON.parse('[["libcoap_rs",["",[["crypto",[["pki_rpk",[],["key.rs","mod.rs","pki.rs","rpk.rs"]],["psk",[],["client.rs","key.rs","mod.rs","server.rs"]]],["mod.rs"]],["message",[],["mod.rs","request.rs","response.rs"]],["session",[],["client.rs","mod.rs","server.rs"]]],["context.rs","error.rs","event.rs","lib.rs","mem.rs","prng.rs","protocol.rs","resource.rs","transport.rs","types.rs"]]],["libcoap_sys",["",[],["lib.rs"]]]]'));
-createSrcSidebar();
-//{"start":36,"fragment_lengths":[375,35]}
