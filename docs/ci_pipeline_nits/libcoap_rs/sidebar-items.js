@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":["resource_handler"],"mod":["crypto","error","message","prng","protocol","session","transport","types"],"struct":["CoapContext","CoapRequestHandler","CoapResource"],"trait":["CoapEventHandler"]};
