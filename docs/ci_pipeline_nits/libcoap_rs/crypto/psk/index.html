@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Types and traits related to support for (D)TLS with pre-shared keys for CoAP."><title>libcoap_rs::crypto::psk - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-46132b98.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="libcoap_rs" data-themes="" data-resource-suffix="" data-rustdoc-version="1.85.0-nightly (4ba4ac612 2024-12-18)" data-channel="nightly" data-search-js="search-036cda7a.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../libcoap_rs/index.html">libcoap_<wbr>rs</a><span class="version">0.2.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module psk</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#client-configuration" title="Client Configuration">Client Configuration</a><ul><li><a href="#example" title="Example">Example</a></li></ul></li><li><a href="#server-configuration" title="Server Configuration">Server Configuration</a><ul><li><a href="#example-1" title="Example">Example</a></li></ul></li></ul><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#traits" title="Traits">Traits</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="../index.html">In libcoap_<wbr>rs::<wbr>crypto</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../../index.html">libcoap_rs</a>::<wbr><a href="../index.html">crypto</a></span><h1>Module <span>psk</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../src/libcoap_rs/crypto/psk/mod.rs.html#9-109">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Types and traits related to support for (D)TLS with pre-shared keys for CoAP.</p>
+<p>PSK configuration differs between client-side and server-side.</p>
+<h2 id="client-configuration"><a class="doc-anchor" href="#client-configuration">§</a>Client Configuration</h2>
+<p>Typically, you would follow these steps to configure a DTLS PSK client:</p>
+<ol>
+<li>Create a <a href="psk::PskKey"><code>PskKey</code></a> that should be used as a default key when connecting to servers.</li>
+<li>Create a <a href="psk::ClientPskContextBuilder"><code>ClientPskContextBuilder</code></a> using the default key,
+(optionally) make some additional configuration changes in the builder.
+Most notably, you might want to call <a href="psk::ClientPskContextBuilder::key_provider"><code>ClientPskContextBuilder::key_provider</code></a>
+to set a key provider that may use server-provided identity hints to select a different key
+than the default key (if your target server sends those hints).</li>
+<li>Call <a href="psk::ClientPskContextBuilder::build"><code>ClientPskContextBuilder::build</code></a> to create a
+<a href="psk::ClientPskContext"><code>ClientPskContext</code></a>.</li>
+<li>Provide the created context to <a href="../../session/client/struct.CoapClientSession.html#method.connect_dtls" title="associated function libcoap_rs::session::client::CoapClientSession::connect_dtls"><code>CoapClientSession::connect_dtls</code></a>.</li>
+</ol>
+<h3 id="example"><a class="doc-anchor" href="#example">§</a>Example</h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>libcoap_rs::CoapContext;
+<span class="kw">use </span>libcoap_rs::crypto::psk::{ClientPskContextBuilder, PskKey};
+<span class="kw">use </span>libcoap_rs::session::CoapClientSession;
+
+<span class="kw">let </span>example_key = PskKey::new(<span class="prelude-val">Some</span>(<span class="string">"dtls_test_id_client1"</span>), <span class="string">"dtls_test_key__1"</span>);
+<span class="kw">let </span>psk_context = ClientPskContextBuilder::new(example_key.clone());
+
+<span class="kw">let </span>psk_context = psk_context.build();
+
+<span class="kw">let </span><span class="kw-2">mut </span>context = CoapContext::new().unwrap();
+<span class="kw">let </span>session = CoapClientSession::connect_dtls(
+                <span class="kw-2">&amp;mut </span>context,
+                <span class="string">"example.com:5684"</span>.parse().unwrap(),
+                psk_context
+              ).unwrap();
+
+<span class="comment">// The session might not be immediately established, but you can already create and send
+// requests as usual after this point.
+// To check for errors and/or disconnections, you might want to call and check the return value
+// of `session.state()` occasionally.
+// For error handling, you might also want to register an event handler with the CoAP context.
+// Remaining code omitted for brevity, see the crate-level docs for a full example of client
+// operation.</span></code></pre></div>
+<h2 id="server-configuration"><a class="doc-anchor" href="#server-configuration">§</a>Server Configuration</h2>
+<p>Typically, you would follow these steps to configure a DTLS PSK server:</p>
+<ol>
+<li>Create a <a href="psk::PskKey"><code>PskKey</code></a> that should be used as a default key when connecting to clients.</li>
+<li>Create a <a href="psk::ServerPskContextBuilder"><code>ServerPskContextBuilder</code></a> using the default key, (optionally) make some additional
+configuration changes in the builder.
+Most notably, you might want to call <a href="psk::ServerPskContextBuilder::id_key_provider"><code>ServerPskContextBuilder::id_key_provider</code></a> to choose
+different pre-shared keys depending on the identity sent by clients, and
+<a href="psk::ServerPskContextBuilder::sni_key_provider"><code>ServerPskContextBuilder::sni_key_provider</code></a> to send different identity hints for different
+requested domains.</li>
+<li>Call <a href="psk::ServerPskContextBuilder::build"><code>ServerPskContextBuilder::build</code></a> to create a <a href="psk::ServerPskContext"><code>ServerPskContext</code></a>.</li>
+<li>Provide the created context to <a href="../../struct.CoapContext.html#method.set_psk_context" title="method libcoap_rs::CoapContext::set_psk_context"><code>CoapContext::set_psk_context</code></a>.</li>
+<li>Add a DTLS endpoint using <a href="../../struct.CoapContext.html#method.add_endpoint_dtls" title="method libcoap_rs::CoapContext::add_endpoint_dtls"><code>CoapContext::add_endpoint_dtls</code></a>.</li>
+</ol>
+<h3 id="example-1"><a class="doc-anchor" href="#example-1">§</a>Example</h3>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::collections::HashMap;
+<span class="kw">use </span>libcoap_rs::CoapContext;
+<span class="kw">use </span>libcoap_rs::crypto::psk::{ClientPskContextBuilder, PskKey, ServerPskContextBuilder};
+<span class="kw">use </span>libcoap_rs::session::CoapClientSession;
+
+
+<span class="kw">let </span>example_key = PskKey::new(<span class="prelude-val">Some</span>(<span class="string">"dtls_test_id"</span>), <span class="string">"dtls_test_key___"</span>);
+
+<span class="kw">let </span><span class="kw-2">mut </span>client_keys = [
+    PskKey::new(<span class="prelude-val">Some</span>(<span class="string">"dtls_test_id_client1"</span>), <span class="string">"dtls_test_key__1"</span>),
+    PskKey::new(<span class="prelude-val">Some</span>(<span class="string">"dtls_test_id_client2"</span>), <span class="string">"dtls_test_key__2"</span>),
+];
+
+<span class="kw">let </span>psk_context = ServerPskContextBuilder::new(example_key.clone())
+                    <span class="comment">// Some types already implement ServerPskIdentityKeyProvider by default.
+                    // Namely, all types that implement AsRef&lt;[PskKey]&gt; do, such as [PskKey] and
+                    // Vec&lt;PskKey&gt;.
+                    </span>.id_key_provider(client_keys);
+
+<span class="kw">let </span>psk_context = psk_context.build();
+
+<span class="kw">let </span><span class="kw-2">mut </span>context = CoapContext::new().unwrap();
+context.set_psk_context(psk_context).expect(<span class="string">"error while setting PSK context"</span>);
+context.add_endpoint_dtls(<span class="string">"[::1]:5684"</span>.parse().unwrap()).expect(<span class="string">"unable to create DTLS endpoint"</span>);
+
+<span class="comment">// For error handling, you might want to register an event handler with the CoAP context.
+// Remaining code omitted for brevity, see the crate-level docs for a full example of server
+// operation.
+</span></code></pre></div>
+</div></details><h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="struct" href="struct.ClientPskContext.html" title="struct libcoap_rs::crypto::psk::ClientPskContext">Client<wbr>PskContext</a></div><div class="desc docblock-short">Client-side encryption context for PSK-based (D)TLS sessions.</div></li><li><div class="item-name"><a class="struct" href="struct.ClientPskContextBuilder.html" title="struct libcoap_rs::crypto::psk::ClientPskContextBuilder">Client<wbr>PskContext<wbr>Builder</a></div><div class="desc docblock-short">Builder for a client-side DTLS encryption context for use with pre-shared keys (PSK).</div></li><li><div class="item-name"><a class="struct" href="struct.PskKey.html" title="struct libcoap_rs::crypto::psk::PskKey">PskKey</a></div><div class="desc docblock-short">A pre-shared DTLS key.</div></li><li><div class="item-name"><a class="struct" href="struct.ServerPskContext.html" title="struct libcoap_rs::crypto::psk::ServerPskContext">Server<wbr>PskContext</a></div><div class="desc docblock-short">Server-side encryption context for PSK-based (D)TLS sessions.</div></li><li><div class="item-name"><a class="struct" href="struct.ServerPskContextBuilder.html" title="struct libcoap_rs::crypto::psk::ServerPskContextBuilder">Server<wbr>PskContext<wbr>Builder</a></div><div class="desc docblock-short">Builder for a server-side DTLS encryption context for use with pre-shared keys (PSK).</div></li></ul><h2 id="traits" class="section-header">Traits<a href="#traits" class="anchor">§</a></h2><ul class="item-table"><li><div class="item-name"><a class="trait" href="trait.ClientPskHintKeyProvider.html" title="trait libcoap_rs::crypto::psk::ClientPskHintKeyProvider">Client<wbr>PskHint<wbr>KeyProvider</a></div><div class="desc docblock-short">Trait for types that can provide the appropriate pre-shared key for a given PSK hint sent by the
+server.</div></li><li><div class="item-name"><a class="trait" href="trait.ServerPskIdentityKeyProvider.html" title="trait libcoap_rs::crypto::psk::ServerPskIdentityKeyProvider">Server<wbr>PskIdentity<wbr>KeyProvider</a></div><div class="desc docblock-short">Trait for types that can provide pre-shared keys for a key identity given by a client to a
+server.</div></li><li><div class="item-name"><a class="trait" href="trait.ServerPskSniKeyProvider.html" title="trait libcoap_rs::crypto::psk::ServerPskSniKeyProvider">Server<wbr>PskSni<wbr>KeyProvider</a></div><div class="desc docblock-short">Trait for things that can provide PSK DTLS keys for a given Server Name Indication.</div></li></ul></section></div></main></body></html>
