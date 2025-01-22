@@ -2,12 +2,12 @@
 <html lang="en-us">
     <head><meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Grcov report - prng.rs </title>
+        <title>Grcov report - rpk.rs </title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"></head>
     <body>
         <div class="container">
     <nav class="breadcrumb is-right" aria-label="breadcrumbs">
-        <ul><li><a href="../../index.html">top_level</a></li><li><a href="./index.html">libcoap&#x2F;src</a></li><li class="is-active"><a href="#">prng.rs</a></li>
+        <ul><li><a href="../../../../index.html">top_level</a></li><li><a href="./index.html">libcoap&#x2F;src&#x2F;crypto&#x2F;pki_rpk</a></li><li class="is-active"><a href="#">rpk.rs</a></li>
         </ul>
     </nav>
     <nav class="level">
@@ -15,7 +15,7 @@
         <div>
             <p class="heading">Lines</p>
             <p class="title has-text-danger">
-                <abbr title="41 / 74">55.41 %</abbr></p>
+                <abbr title="53 / 73">72.6 %</abbr></p>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         <div>
             <p class="heading">Functions</p>
             <p class="title has-text-danger">
-                <abbr title="17 / 88">19.32 %</abbr></p>
+                <abbr title="12 / 56">21.43 %</abbr></p>
         </div>
     </div>
 
@@ -85,7 +85,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"> * prng.rs - libcoap pseudo-random number generator functions.</pre>
+                <pre class="has-background-white py-0 px-2"> * crypto&#x2F;pki_rpk&#x2F;rpk.rs - Interfaces and types for RPK support in libcoap-rs.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -133,7 +133,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"> * Copyright © 2024 The NAMIB Project Developers, all rights reserved.</pre>
+                <pre class="has-background-white py-0 px-2"> * Copyright © 2021-2024 The NAMIB Project Developers, all rights reserved.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -197,7 +197,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;! Module containing methods for accessing or configuring the libcoap PRNG.</pre>
+                <pre class="has-background-white py-0 px-2">use crate::crypto::pki_rpk;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -213,7 +213,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;!</pre>
+                <pre class="has-background-white py-0 px-2">use crate::crypto::pki_rpk::key::{KeyComponentSealed, KeyTypeSealed};</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -229,7 +229,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;! This module provides basic functions to seed the libcoap PRNG and retrieve random bytes from it.</pre>
+                <pre class="has-background-white py-0 px-2">use crate::crypto::pki_rpk::{</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -245,7 +245,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;!</pre>
+                <pre class="has-background-white py-0 px-2">    Asn1PrivateKeyType, CnCallback, KeyComponent, KeyDef, KeyDefSealed, NonCertVerifying, PemMemoryKeyComponent,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -261,7 +261,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;! Additionally, if the `rand` feature is enabled, this module contains integrations with the</pre>
+                <pre class="has-background-white py-0 px-2">    Pkcs11KeyComponent, PkiRpkContext, PkiRpkContextBuilder, ServerPkiRpkCryptoContext,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -277,7 +277,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;! [rand] crate that allow using the libcoap PRNG as a [rand::Rng] or setting the libcoap PRNG to</pre>
+                <pre class="has-background-white py-0 px-2">};</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -293,7 +293,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;! an existing [rand::Rng].</pre>
+                <pre class="has-background-white py-0 px-2">use crate::crypto::ClientCryptoContext;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -309,7 +309,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">use crate::session::CoapSession;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -325,7 +325,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use std::ffi::{c_uint, c_void};</pre>
+                <pre class="has-background-white py-0 px-2">use libcoap_sys::{coap_const_char_ptr_t, coap_dtls_key_t, coap_dtls_key_t__bindgen_ty_1, coap_dtls_pki_t, coap_pki_define_t, coap_pki_define_t_COAP_PKI_KEY_DEF_PEM, coap_pki_define_t_COAP_PKI_KEY_DEF_PKCS11_RPK, coap_pki_define_t_COAP_PKI_KEY_DEF_RPK_BUF, coap_pki_key_define_t, coap_pki_key_t, coap_pki_key_t_COAP_PKI_KEY_DEFINE};</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -341,7 +341,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-white py-0 px-2">use std::ffi::CString;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -357,7 +357,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use std::ffi::c_int;</pre>
+                <pre class="has-background-white py-0 px-2">use std::fmt::Debug;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -373,7 +373,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use std::sync::Mutex;</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -389,7 +389,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; (Marker) key type for asymmetric DTLS keys not signed by a CA (raw public keys).</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -405,7 +405,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-white py-0 px-2">#[derive(Debug, Clone, Copy)]</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -421,7 +421,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use rand::{CryptoRng, RngCore};</pre>
+                <pre class="has-background-white py-0 px-2">pub struct Rpk {}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -453,7 +453,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use libcoap_sys::{coap_prng, coap_prng_init};</pre>
+                <pre class="has-background-white py-0 px-2">impl KeyTypeSealed for Rpk {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -463,13 +463,13 @@
                 <a href="#27">27</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="26">
+                26
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-success-light py-0 px-2">    fn set_key_type_defaults(ctx: &amp;mut coap_dtls_pki_t) {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -479,13 +479,13 @@
                 <a href="#28">28</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="26">
+                26
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use libcoap_sys::coap_set_prng;</pre>
+                <pre class="has-background-success-light py-0 px-2">        ctx.is_rpk_not_cert = 1;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -495,13 +495,13 @@
                 <a href="#29">29</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="26">
+                26
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-success-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -517,7 +517,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use crate::context::ensure_coap_started;</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -533,7 +533,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">use crate::error::RngError;</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -549,7 +549,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; If PKI is enabled, implement conversions for PKI contexts to RPK-supporting server&#x2F;client-side</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -565,7 +565,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; TODO If we can assert that libcoap&#x27;s own thread-safety features are enabled at some point, we</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; cryptographic contexts.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -581,7 +581,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;      don&#x27;t need these mutexes.</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -597,7 +597,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">static COAP_RNG_SEED_MUTEX: Mutex&lt;()&gt; = Mutex::new(());</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;&#x27;a&gt; From&lt;PkiRpkContext&lt;&#x27;a, Rpk&gt;&gt; for ClientCryptoContext&lt;&#x27;a&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -607,13 +607,13 @@
                 <a href="#36">36</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="13">
+                13
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-success-light py-0 px-2">    fn from(value: PkiRpkContext&lt;&#x27;a, Rpk&gt;) -&gt; Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -623,13 +623,13 @@
                 <a href="#37">37</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="13">
+                13
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">static COAP_RNG_FN_MUTEX: Mutex&lt;Option&lt;Box&lt;dyn RngCore + Send + Sync&gt;&gt;&gt; = Mutex::new(None);</pre>
+                <pre class="has-background-success-light py-0 px-2">        ClientCryptoContext::Rpk(value)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -639,13 +639,13 @@
                 <a href="#38">38</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="13">
+                13
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">static COAP_RNG_ACCESS_MUTEX: Mutex&lt;()&gt; = Mutex::new(());</pre>
+                <pre class="has-background-success-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -661,7 +661,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -677,7 +677,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Attempts to fill `dest` with random bytes using libcoap&#x27;s PRNG.</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -693,7 +693,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;&#x27;a&gt; From&lt;PkiRpkContext&lt;&#x27;a, Rpk&gt;&gt; for ServerPkiRpkCryptoContext&lt;&#x27;a&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -703,13 +703,13 @@
                 <a href="#42">42</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="13">
+                13
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Errors</pre>
+                <pre class="has-background-success-light py-0 px-2">    fn from(value: PkiRpkContext&lt;&#x27;a, Rpk&gt;) -&gt; Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -719,13 +719,13 @@
                 <a href="#43">43</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="13">
+                13
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">        ServerPkiRpkCryptoContext::Rpk(value)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -735,13 +735,13 @@
                 <a href="#44">44</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="13">
+                13
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Will return an error if libcoap&#x27;s PRNG has an error or the underlying mutex was poisoned by a</pre>
+                <pre class="has-background-success-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -757,7 +757,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; panic in another thread.</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -773,7 +773,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -789,7 +789,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Example</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;&#x27;a&gt; PkiRpkContextBuilder&lt;&#x27;a, Rpk, NonCertVerifying&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -805,7 +805,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; Sets the raw public key validator for this encryption context.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -821,7 +821,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; ```</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -831,13 +831,13 @@
                 <a href="#50">50</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="4">
-                4
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; use libcoap_rs::error::RngError;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; The raw public key validator&#x27;s [`validate_rpk`](RpkValidator::validate_rpk) function will be</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -853,7 +853,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; use libcoap_rs::prng::coap_prng_try_fill;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; called after the TLS-level validation checks have been completed in order to check whether</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -869,7 +869,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; the RPK provided by the peer is allowed&#x2F;as expected.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -885,7 +885,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; let mut token = [0u8; 8];</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -895,13 +895,13 @@
                 <a href="#54">54</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; coap_prng_try_fill(&amp;mut token)?;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; # Implementation details (informative, not covered by semver guarantees)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -911,13 +911,13 @@
                 <a href="#55">55</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -933,7 +933,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; Setting an RPK validator will set the `validate_cn_call_back` of the underlying</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -949,7 +949,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Result::&lt;(), RngError&gt;::Ok(())</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; [`coap_dtls_pki_t`] to a wrapper function, which will then call the RPK validator.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -959,13 +959,13 @@
                 <a href="#58">58</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; ```</pre>
+                <pre class="has-background-danger-light py-0 px-2">    pub fn rpk_validator(mut self, validator: impl RpkValidator + &#x27;a) -&gt; Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -975,13 +975,13 @@
                 <a href="#59">59</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="140">
-                140
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">pub fn coap_prng_try_fill(dest: &amp;mut [u8]) -&gt; Result&lt;(), RngError&gt; {</pre>
+                <pre class="has-background-danger-light py-0 px-2">        self.ctx.cn_callback = Some(CnCallback::Rpk(Box::new(validator)));</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -991,13 +991,13 @@
                 <a href="#60">60</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="140">
-                140
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    ensure_coap_started();</pre>
+                <pre class="has-background-danger-light py-0 px-2">        self.ctx.raw_cfg.validate_cn_call_back = Some(pki_rpk::dtls_pki_cn_callback::&lt;Rpk&gt;);</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1007,13 +1007,13 @@
                 <a href="#61">61</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="140">
-                140
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    let _acc_mutex = COAP_RNG_ACCESS_MUTEX.lock()?;</pre>
+                <pre class="has-background-danger-light py-0 px-2">        self</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1023,13 +1023,13 @@
                 <a href="#62">62</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
                 
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F; SAFETY: Supplied pointer and length describe the provided slice.</pre>
+                <pre class="has-background-danger-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1039,13 +1039,13 @@
                 <a href="#63">63</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="140">
-                140
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    match unsafe { coap_prng(dest.as_mut_ptr() as *mut c_void, dest.len()) } {</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1055,13 +1055,13 @@
                 <a href="#64">64</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="140">
-                140
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">        1 =&gt; Ok(()),</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1071,13 +1071,13 @@
                 <a href="#65">65</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        _v =&gt; Err(RngError::Unknown),</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Trait for types that can validate that a raw public key is the one expected for a given peer.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1093,7 +1093,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">    }</pre>
+                <pre class="has-background-white py-0 px-2">pub trait RpkValidator {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1103,13 +1103,13 @@
                 <a href="#67">67</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="140">
-                140
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">}</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; Validates the raw public key of a peer.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1125,7 +1125,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Implementation of the [rand::RngCore] trait based on libcoap&#x27;s PRNG.</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1141,7 +1141,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; This function is provided with the public key (`asn1_public_key`), the respective `session`,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1157,7 +1157,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Important: *DO NOT* provide an instance of [CoapRng] to [set_coap_prng]! This will probably lead</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; and the TLS library&#x27;s `validated` status, and should return `true` if the connection is to</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1173,7 +1173,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; to a stack overflow, as [CoapRng] would recursively call into itself to generate random bytes.</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; be accepted and `false` if the connection should be aborted.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1189,7 +1189,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1205,7 +1205,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">pub struct CoapRng {}</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; `asn1_encoded_key` should be the certificate structure defined in</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1221,7 +1221,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; [RFC 7250, section 3](https:&#x2F;&#x2F;datatracker.ietf.org&#x2F;doc&#x2F;html&#x2F;rfc7250#section-3), which you</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1237,7 +1237,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; might be able to parse with crates like</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1253,7 +1253,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">impl RngCore for CoapRng {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; [x509-cert](https:&#x2F;&#x2F;docs.rs&#x2F;x509-cert&#x2F;latest&#x2F;x509_cert&#x2F;index.html) and</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1263,13 +1263,13 @@
                 <a href="#77">77</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    fn next_u32(&amp;mut self) -&gt; u32 {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; [spki](https:&#x2F;&#x2F;docs.rs&#x2F;spki&#x2F;0.7.3&#x2F;spki&#x2F;index.html) to obtain and match the</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1279,13 +1279,13 @@
                 <a href="#78">78</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        rand_core::impls::next_u32_via_fill(self)</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; SubjectPublicKeyInformation encoded within.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1295,13 +1295,13 @@
                 <a href="#79">79</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    }</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1317,7 +1317,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; See [the libcoap documentation](https:&#x2F;&#x2F;libcoap.net&#x2F;doc&#x2F;reference&#x2F;4.3.5&#x2F;group__dtls.html#gaef7a2800757a4922102311c94c3fa529)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1327,13 +1327,13 @@
                 <a href="#81">81</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    fn next_u64(&amp;mut self) -&gt; u64 {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; for more information.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1343,13 +1343,13 @@
                 <a href="#82">82</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        rand_core::impls::next_u64_via_fill(self)</pre>
+                <pre class="has-background-white py-0 px-2">    fn validate_rpk(&amp;self, asn1_public_key: &amp;[u8], session: &amp;CoapSession, validated: bool) -&gt; bool;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1359,13 +1359,13 @@
                 <a href="#83">83</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    }</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1391,13 +1391,13 @@
                 <a href="#85">85</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    fn fill_bytes(&amp;mut self, dest: &amp;mut [u8]) {</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;T: Fn(&amp;[u8], &amp;CoapSession, bool) -&gt; bool&gt; RpkValidator for T {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1413,7 +1413,7 @@
             </div>
             <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        self.try_fill_bytes(dest)</pre>
+                <pre class="has-background-danger-light py-0 px-2">    fn validate_rpk(&amp;self, asn1_public_key: &amp;[u8], session: &amp;CoapSession, validated: bool) -&gt; bool {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1429,7 +1429,7 @@
             </div>
             <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">            .expect(&quot;error while generating bytes from libcoap RNG&quot;)</pre>
+                <pre class="has-background-danger-light py-0 px-2">        self(asn1_public_key, session, validated)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1461,7 +1461,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1471,13 +1471,13 @@
                 <a href="#90">90</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    fn try_fill_bytes(&amp;mut self, dest: &amp;mut [u8]) -&gt; Result&lt;(), rand::Error&gt; {</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1487,13 +1487,13 @@
                 <a href="#91">91</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        coap_prng_try_fill(dest).map_err(|e| rand::Error::new(e))</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Key definition for a DTLS key consisting of a private and public key component without a signed</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1503,13 +1503,13 @@
                 <a href="#92">92</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    }</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; certificate.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1525,7 +1525,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">}</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1541,7 +1541,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Note on key construction</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1557,7 +1557,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; For now, we can&#x27;t implement this, as libcoap falls back to the not cryptographically secure</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1573,7 +1573,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; rand()&#x2F;srand() if it can&#x27;t find a cryptographically secure PRNG.</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; For maximum compatibility, you should stick to the `with_*` constructors defined for this type.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1589,7 +1589,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; Should be reconsidered either if libcoap removes this fallback or if we can detect whether the</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; While in theory you could use an arbitrary combination of key component types for a key</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1605,7 +1605,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F; fallback was used.</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; definition, those defined using `with_*` match explicit key types provided in libcoap and should</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1621,7 +1621,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;impl CryptoRng for CoapRng {}</pre>
+                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; therefore always be supported.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1637,7 +1637,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">#[derive(Clone, Debug)]</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1653,7 +1653,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Seeds the default PRNG of libcoap with the provided seed.</pre>
+                <pre class="has-background-white py-0 px-2">pub struct RpkKeyDef&lt;PK: KeyComponent&lt;Rpk&gt;, SK: KeyComponent&lt;Rpk&gt;&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1669,7 +1669,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    public_key: PK,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1685,7 +1685,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Errors</pre>
+                <pre class="has-background-white py-0 px-2">    private_key: SK,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1701,7 +1701,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    user_pin: Option&lt;CString&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1717,7 +1717,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; May return an error if the mutex for seeding the PRNG is poisoned, i.e. there was some panic</pre>
+                <pre class="has-background-white py-0 px-2">    asn1_private_key_type: Asn1PrivateKeyType,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1733,7 +1733,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; in a previous attempt of seeding the PRNG.</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1743,13 +1743,13 @@
                 <a href="#107">107</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">pub fn seed_coap_prng(seed: c_uint) -&gt; Result&lt;(), RngError&gt; {</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1759,13 +1759,13 @@
                 <a href="#108">108</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    ensure_coap_started();</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;PK: KeyComponent&lt;Rpk&gt;, SK: KeyComponent&lt;Rpk&gt;&gt; RpkKeyDef&lt;PK, SK&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1775,13 +1775,13 @@
                 <a href="#109">109</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    let guard = COAP_RNG_SEED_MUTEX.lock()?;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; Creates a new key definition using the given components.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1791,13 +1791,13 @@
                 <a href="#110">110</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    unsafe {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1807,13 +1807,13 @@
                 <a href="#111">111</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        coap_prng_init(seed);</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; # Parameters</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1823,13 +1823,13 @@
                 <a href="#112">112</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    }</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1839,13 +1839,13 @@
                 <a href="#113">113</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    drop(guard);</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; - `public_key`:  The public key component of this key.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1855,13 +1855,13 @@
                 <a href="#114">114</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">    Ok(())</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; - `private_key`: The private key.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1871,13 +1871,13 @@
                 <a href="#115">115</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">}</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; - `user_pin`:    The PIN that should be used when unlocking a token (for PKCS11 keys stored</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1893,7 +1893,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2"></pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;                  on a token, ignored otherwise)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1909,7 +1909,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Configures libcoap to use the provided `rng` for pseudo-random number generation instead of its</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; - `asn1_private_key_type`: The type of the private key (only used for DER&#x2F;ASN.1 encoded</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1925,7 +1925,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; default PRNG.</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;                  keys).</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1935,13 +1935,13 @@
                 <a href="#119">119</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">    pub fn new(</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1951,13 +1951,13 @@
                 <a href="#120">120</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; The provided PRNG will be used globally across all contexts.</pre>
+                <pre class="has-background-success-light py-0 px-2">        public_key: PK,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1967,13 +1967,13 @@
                 <a href="#121">121</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">        private_key: SK,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1983,13 +1983,13 @@
                 <a href="#122">122</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Errors</pre>
+                <pre class="has-background-success-light py-0 px-2">        user_pin: Option&lt;CString&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -1999,13 +1999,13 @@
                 <a href="#123">123</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">        asn1_private_key_type: Asn1PrivateKeyType,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2015,13 +2015,13 @@
                 <a href="#124">124</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; May return an error if the underlying mutex protecting the RNG is poisoned, i.e. a thread</pre>
+                <pre class="has-background-success-light py-0 px-2">    ) -&gt; Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2031,13 +2031,13 @@
                 <a href="#125">125</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; panicked while holding the lock (which should only happen if the previously set RNG panicked).</pre>
+                <pre class="has-background-success-light py-0 px-2">        Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2047,13 +2047,13 @@
                 <a href="#126">126</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">            public_key,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2063,13 +2063,13 @@
                 <a href="#127">127</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Example</pre>
+                <pre class="has-background-success-light py-0 px-2">            private_key,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2079,13 +2079,13 @@
                 <a href="#128">128</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">            user_pin,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2095,13 +2095,13 @@
                 <a href="#129">129</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; ```</pre>
+                <pre class="has-background-success-light py-0 px-2">            asn1_private_key_type,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2117,7 +2117,7 @@
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; use rand_core::{CryptoRng, Error, RngCore};</pre>
+                <pre class="has-background-success-light py-0 px-2">        }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2127,13 +2127,13 @@
                 <a href="#131">131</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; use libcoap_rs::error::RngError;</pre>
+                <pre class="has-background-success-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2149,7 +2149,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; use libcoap_rs::prng::{coap_prng_try_fill, set_coap_prng};</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2165,7 +2165,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2181,7 +2181,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; pub struct NullRng {}</pre>
+                <pre class="has-background-white py-0 px-2">impl RpkKeyDef&lt;PemMemoryKeyComponent, PemMemoryKeyComponent&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2197,7 +2197,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; Creates a new key definition using PEM-encoded byte sequences in memory as components.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2213,7 +2213,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; impl RngCore for NullRng {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2229,7 +2229,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;     fn next_u32(&amp;mut self) -&gt; u32 {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; See the documentation of [`RpkKeyDef::new`] for more information on the parameters.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2239,13 +2239,13 @@
                 <a href="#138">138</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;         0</pre>
+                <pre class="has-background-success-light py-0 px-2">    pub fn with_pem_memory(</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2255,13 +2255,13 @@
                 <a href="#139">139</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;     }</pre>
+                <pre class="has-background-success-light py-0 px-2">        public_key: impl Into&lt;PemMemoryKeyComponent&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2271,13 +2271,13 @@
                 <a href="#140">140</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-success-light py-0 px-2">        private_key: impl Into&lt;PemMemoryKeyComponent&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2287,13 +2287,13 @@
                 <a href="#141">141</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;     fn next_u64(&amp;mut self) -&gt; u64 {</pre>
+                <pre class="has-background-success-light py-0 px-2">    ) -&gt; Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2303,13 +2303,13 @@
                 <a href="#142">142</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;         0</pre>
+                <pre class="has-background-success-light py-0 px-2">        Self::new(public_key.into(), private_key.into(), None, Asn1PrivateKeyType::None)</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2319,13 +2319,13 @@
                 <a href="#143">143</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;     }</pre>
+                <pre class="has-background-success-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2335,13 +2335,13 @@
                 <a href="#144">144</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2357,7 +2357,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;     fn fill_bytes(&amp;mut self, dest: &amp;mut [u8]) {</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2367,13 +2367,13 @@
                 <a href="#146">146</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;         dest.fill(0);</pre>
+                <pre class="has-background-white py-0 px-2">impl RpkKeyDef&lt;Pkcs11KeyComponent, Pkcs11KeyComponent&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2383,13 +2383,13 @@
                 <a href="#147">147</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;     }</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; Creates a new key definition using PKCS11 URIs as components.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2399,13 +2399,13 @@
                 <a href="#148">148</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2421,7 +2421,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;     fn try_fill_bytes(&amp;mut self, dest: &amp;mut [u8]) -&gt; Result&lt;(), Error&gt; {</pre>
+                <pre class="has-background-white py-0 px-2">    &#x2F;&#x2F;&#x2F; See the documentation of [`RpkKeyDef::new`] for more information on the parameters.</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2431,13 +2431,13 @@
                 <a href="#150">150</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="4">
-                4
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F;         dest.fill(0);</pre>
+                <pre class="has-background-danger-light py-0 px-2">    pub fn with_pkcs11(</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2447,13 +2447,13 @@
                 <a href="#151">151</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="4">
-                4
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F;         Ok(())</pre>
+                <pre class="has-background-danger-light py-0 px-2">        public_key: impl Into&lt;Pkcs11KeyComponent&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2463,13 +2463,13 @@
                 <a href="#152">152</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="4">
-                4
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F;     }</pre>
+                <pre class="has-background-danger-light py-0 px-2">        private_key: impl Into&lt;Pkcs11KeyComponent&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2479,13 +2479,13 @@
                 <a href="#153">153</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="4">
-                4
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; }</pre>
+                <pre class="has-background-danger-light py-0 px-2">        user_pin: Option&lt;CString&gt;,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2495,13 +2495,13 @@
                 <a href="#154">154</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
                 
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-danger-light py-0 px-2">    ) -&gt; Self {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2511,13 +2511,13 @@
                 <a href="#155">155</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
                 
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; &#x2F;&#x2F; Obviously, this is just for demonstration purposes and should not actually be done.</pre>
+                <pre class="has-background-danger-light py-0 px-2">        Self::new(</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2527,13 +2527,13 @@
                 <a href="#156">156</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
                 
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; impl CryptoRng for NullRng {}</pre>
+                <pre class="has-background-danger-light py-0 px-2">            public_key.into(),</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2543,13 +2543,13 @@
                 <a href="#157">157</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
                 
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-danger-light py-0 px-2">            private_key.into(),</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2559,13 +2559,13 @@
                 <a href="#158">158</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
                 
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; set_coap_prng(NullRng{})?;</pre>
+                <pre class="has-background-danger-light py-0 px-2">            user_pin,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2575,13 +2575,13 @@
                 <a href="#159">159</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; let mut token = [1u8; 8];</pre>
+                <pre class="has-background-danger-light py-0 px-2">            Asn1PrivateKeyType::None,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2591,13 +2591,13 @@
                 <a href="#160">160</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; coap_prng_try_fill(&amp;mut token)?;</pre>
+                <pre class="has-background-danger-light py-0 px-2">        )</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2607,13 +2607,13 @@
                 <a href="#161">161</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
+                role="cell" aria-label="0">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-danger-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-danger-light py-0 px-2">    }</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2629,7 +2629,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; assert_eq!(&amp;token, &amp;[0u8; 8]);</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2639,13 +2639,13 @@
                 <a href="#163">163</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2661,7 +2661,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;PK: KeyComponent&lt;Rpk&gt;, SK: KeyComponent&lt;Rpk&gt;&gt; KeyDefSealed for RpkKeyDef&lt;PK, SK&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2671,13 +2671,13 @@
                 <a href="#165">165</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
             </div>
-            <div class="column has-background-white p-0"
+            <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Result::&lt;(), RngError&gt;::Ok(())</pre>
+                <pre class="has-background-success-light py-0 px-2">    fn as_raw_dtls_key(&amp;self) -&gt; coap_dtls_key_t {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2688,12 +2688,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">&#x2F;&#x2F;&#x2F; ```</pre>
+                <pre class="has-background-success-light py-0 px-2">        let (public_cert, public_cert_len) = self.public_key.as_raw_key_component();</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2709,7 +2709,7 @@
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
+                <pre class="has-background-success-light py-0 px-2">        let (private_key, private_key_len) = self.private_key.as_raw_key_component();</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2720,12 +2720,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">pub fn set_coap_prng&lt;RNG: RngCore + CryptoRng + Send + Sync + &#x27;static&gt;(rng: RNG) -&gt; Result&lt;(), RngError&gt; {</pre>
+                <pre class="has-background-success-light py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2736,12 +2736,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    ensure_coap_started();</pre>
+                <pre class="has-background-success-light py-0 px-2">        coap_dtls_key_t {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2752,12 +2752,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    let mut guard = COAP_RNG_FN_MUTEX.lock()?;</pre>
+                <pre class="has-background-success-light py-0 px-2">            key_type: coap_pki_key_t_COAP_PKI_KEY_DEFINE,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2768,12 +2768,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    *guard = Some(Box::new(rng));</pre>
+                <pre class="has-background-success-light py-0 px-2">            key: coap_dtls_key_t__bindgen_ty_1 {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2784,12 +2784,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    &#x2F;&#x2F; SAFETY: Pointer is valid and pointed to function does what libcoap expects.</pre>
+                <pre class="has-background-success-light py-0 px-2">                define: coap_pki_key_define_t {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2800,12 +2800,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    unsafe {</pre>
+                <pre class="has-background-success-light py-0 px-2">                    ca: coap_const_char_ptr_t {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2816,12 +2816,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">        coap_set_prng(Some(prng_callback));</pre>
+                <pre class="has-background-success-light py-0 px-2">                        u_byte: std::ptr::null(),</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2832,12 +2832,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    }</pre>
+                <pre class="has-background-success-light py-0 px-2">                    },</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2848,12 +2848,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    drop(guard);</pre>
+                <pre class="has-background-success-light py-0 px-2">                    public_cert,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2864,12 +2864,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">    Ok(())</pre>
+                <pre class="has-background-success-light py-0 px-2">                    private_key,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2880,12 +2880,12 @@
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="1">
-                1
+                role="cell" aria-label="4">
+                4
             </div>
             <div class="column has-background-success-light p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">}</pre>
+                <pre class="has-background-success-light py-0 px-2">                    ca_len: 0,</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -2893,6 +2893,198 @@
                 id="179"
                 role="cell">
                 <a href="#179">179</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    public_cert_len,</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="180"
+                role="cell">
+                <a href="#180">180</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    private_key_len,</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="181"
+                role="cell">
+                <a href="#181">181</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    ca_def: coap_pki_define_t_COAP_PKI_KEY_DEF_PEM,</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="182"
+                role="cell">
+                <a href="#182">182</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    public_cert_def: &lt;PK as KeyComponentSealed&lt;Rpk&gt;&gt;::DEFINE_TYPE,</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="183"
+                role="cell">
+                <a href="#183">183</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    private_key_def: &lt;SK as KeyComponentSealed&lt;Rpk&gt;&gt;::DEFINE_TYPE,</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="184"
+                role="cell">
+                <a href="#184">184</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    private_key_type: self.asn1_private_key_type.into(),</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="185"
+                role="cell">
+                <a href="#185">185</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                    user_pin: self.user_pin.as_ref().map(|v| v.as_ptr()).unwrap_or(std::ptr::null()),</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="186"
+                role="cell">
+                <a href="#186">186</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">                },</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="187"
+                role="cell">
+                <a href="#187">187</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">            },</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="188"
+                role="cell">
+                <a href="#188">188</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">        }</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="189"
+                role="cell">
+                <a href="#189">189</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
+                role="cell" aria-label="4">
+                4
+            </div>
+            <div class="column has-background-success-light p-0"
+                 role="cell">
+                <pre class="has-background-success-light py-0 px-2">    }</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="190"
+                role="cell">
+                <a href="#190">190</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
+            </div>
+            <div class="column has-background-white p-0"
+                 role="cell">
+                <pre class="has-background-white py-0 px-2">}</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="191"
+                role="cell">
+                <a href="#191">191</a>
             </div>
             <div
                 class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
@@ -2906,210 +3098,18 @@
         </div><div class="columns p-0 m-0" role="row">
             <div
                 class="column is-1 is-narrow p-0 has-text-centered"
-                id="180"
-                role="cell">
-                <a href="#180">180</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; Callback provided to libcoap for generating random numbers.</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="181"
-                role="cell">
-                <a href="#181">181</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="182"
-                role="cell">
-                <a href="#182">182</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; # Safety</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="183"
-                role="cell">
-                <a href="#183">183</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F;</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="184"
-                role="cell">
-                <a href="#184">184</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; This function is intended as a [libcoap_sys::coap_rand_func_t], therefore `out` should be valid</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="185"
-                role="cell">
-                <a href="#185">185</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">&#x2F;&#x2F;&#x2F; and point to the start of an area of memory that can be filled with `len` bytes.</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="186"
-                role="cell">
-                <a href="#186">186</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
-                role="cell" aria-label="no coverage">
-                
-            </div>
-            <div class="column has-background-white p-0"
-                 role="cell">
-                <pre class="has-background-white py-0 px-2">#[cfg(feature = &quot;rand&quot;)]</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="187"
-                role="cell">
-                <a href="#187">187</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
-            </div>
-            <div class="column has-background-success-light p-0"
-                 role="cell">
-                <pre class="has-background-success-light py-0 px-2">unsafe extern &quot;C&quot; fn prng_callback(out: *mut c_void, len: usize) -&gt; c_int {</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="188"
-                role="cell">
-                <a href="#188">188</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
-            </div>
-            <div class="column has-background-success-light p-0"
-                 role="cell">
-                <pre class="has-background-success-light py-0 px-2">    let out_slice = std::slice::from_raw_parts_mut(out as *mut u8, len);</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="189"
-                role="cell">
-                <a href="#189">189</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
-            </div>
-            <div class="column has-background-success-light p-0"
-                 role="cell">
-                <pre class="has-background-success-light py-0 px-2">    match COAP_RNG_FN_MUTEX.lock() {</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="190"
-                role="cell">
-                <a href="#190">190</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
-            </div>
-            <div class="column has-background-success-light p-0"
-                 role="cell">
-                <pre class="has-background-success-light py-0 px-2">        Ok(mut rng_fn) =&gt; rng_fn</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
-                id="191"
-                role="cell">
-                <a href="#191">191</a>
-            </div>
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
-            </div>
-            <div class="column has-background-success-light p-0"
-                 role="cell">
-                <pre class="has-background-success-light py-0 px-2">            .as_mut()</pre>
-            </div>
-        </div><div class="columns p-0 m-0" role="row">
-            <div
-                class="column is-1 is-narrow p-0 has-text-centered"
                 id="192"
                 role="cell">
                 <a href="#192">192</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">            .expect(&quot;rng_callback has been set, but no RNG was set&quot;)</pre>
+                <pre class="has-background-white py-0 px-2">impl&lt;PK: KeyComponent&lt;Rpk&gt;, SK: KeyComponent&lt;Rpk&gt;&gt; KeyDef for RpkKeyDef&lt;PK, SK&gt; {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -3119,13 +3119,13 @@
                 <a href="#193">193</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">            .try_fill_bytes(out_slice)</pre>
+                <pre class="has-background-white py-0 px-2">    type KeyType = Rpk;</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -3135,13 +3135,13 @@
                 <a href="#194">194</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">            .map_or(0, |_| 1),</pre>
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -3151,13 +3151,13 @@
                 <a href="#195">195</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-danger-light has-background-danger"
-                role="cell" aria-label="0">
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
                 
             </div>
-            <div class="column has-background-danger-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-danger-light py-0 px-2">        Err(_e) =&gt; 0,</pre>
+                <pre class="has-background-white py-0 px-2"></pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -3173,7 +3173,7 @@
             </div>
             <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-white py-0 px-2">    }</pre>
+                <pre class="has-background-white py-0 px-2">impl KeyComponentSealed&lt;Rpk&gt; for PemMemoryKeyComponent {</pre>
             </div>
         </div><div class="columns p-0 m-0" role="row">
             <div
@@ -3183,13 +3183,93 @@
                 <a href="#197">197</a>
             </div>
             <div
-                class="column is-1 is-narrow p-0 has-text-centered has-text-success-light has-background-success"
-                role="cell" aria-label="35">
-                35
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
             </div>
-            <div class="column has-background-success-light p-0"
+            <div class="column has-background-white p-0"
                  role="cell">
-                <pre class="has-background-success-light py-0 px-2">}</pre>
+                <pre class="has-background-white py-0 px-2">    const DEFINE_TYPE: coap_pki_define_t = coap_pki_define_t_COAP_PKI_KEY_DEF_RPK_BUF;</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="198"
+                role="cell">
+                <a href="#198">198</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
+            </div>
+            <div class="column has-background-white p-0"
+                 role="cell">
+                <pre class="has-background-white py-0 px-2">}</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="199"
+                role="cell">
+                <a href="#199">199</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
+            </div>
+            <div class="column has-background-white p-0"
+                 role="cell">
+                <pre class="has-background-white py-0 px-2"></pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="200"
+                role="cell">
+                <a href="#200">200</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
+            </div>
+            <div class="column has-background-white p-0"
+                 role="cell">
+                <pre class="has-background-white py-0 px-2">impl KeyComponentSealed&lt;Rpk&gt; for Pkcs11KeyComponent {</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="201"
+                role="cell">
+                <a href="#201">201</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
+            </div>
+            <div class="column has-background-white p-0"
+                 role="cell">
+                <pre class="has-background-white py-0 px-2">    const DEFINE_TYPE: coap_pki_define_t = coap_pki_define_t_COAP_PKI_KEY_DEF_PKCS11_RPK;</pre>
+            </div>
+        </div><div class="columns p-0 m-0" role="row">
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered"
+                id="202"
+                role="cell">
+                <a href="#202">202</a>
+            </div>
+            <div
+                class="column is-1 is-narrow p-0 has-text-centered has-text-white has-background-white"
+                role="cell" aria-label="no coverage">
+                
+            </div>
+            <div class="column has-background-white p-0"
+                 role="cell">
+                <pre class="has-background-white py-0 px-2">}</pre>
             </div>
         </div></div>
 </div>
