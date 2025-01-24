@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="A safe wrapper around the libcoap C library."><title>libcoap_rs - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../static.files/rustdoc-5d1d17d0.css"><meta name="rustdoc-vars" data-root-path="../" data-static-root-path="../static.files/" data-current-crate="libcoap_rs" data-themes="" data-resource-suffix="" data-rustdoc-version="1.86.0-nightly (99768c80a 2025-01-23)" data-channel="nightly" data-search-js="search-ccb196c1.js" data-settings-js="settings-0f613d39.js" ><script src="../static.files/storage-59e33391.js"></script><script defer src="../crates.js"></script><script defer src="../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../static.files/favicon-044be391.svg"></head><body class="rustdoc mod crate"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../libcoap_rs/index.html">libcoap_<wbr>rs</a><span class="version">0.2.2</span></h2></div><div class="sidebar-elems"><ul class="block"><li><a id="all-types" href="all.html">All Items</a></li></ul><section id="rustdoc-toc"><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#feature-support" title="Feature support">Feature support</a></li><li><a href="#building" title="Building">Building</a></li><li><a href="#examples" title="Examples">Examples</a><ul><li><a href="#client" title="Client">Client</a></li><li><a href="#server" title="Server">Server</a></li></ul></li></ul><h3><a href="#modules">Crate Items</a></h3><ul class="block"><li><a href="#modules" title="Modules">Modules</a></li><li><a href="#macros" title="Macros">Macros</a></li><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#traits" title="Traits">Traits</a></li></ul></section><div id="rustdoc-modnav"></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><h1>Crate <span>libcoap_rs</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../src/libcoap_rs/lib.rs.html#11-184">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>A safe wrapper around the libcoap C library.</p>
+<p>This wrapper allows for safe and idiomatic usage of the libcoap C library in Rust.</p>
+<h2 id="feature-support"><a class="doc-anchor" href="#feature-support">§</a>Feature support</h2>
+<p>libcoap-rs currently supports the following subset of the libcoap feature set:</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Basic CoAP client</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Basic CoAP server</li>
+<li><input disabled="" type="checkbox"/>
+Transports:
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+UDP</li>
+<li><input disabled="" type="checkbox" checked=""/>
+DTLS
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+DTLS using PSK</li>
+<li><input disabled="" type="checkbox" checked=""/>
+DTLS using PKI/RPK</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+TCP</li>
+<li><input disabled="" type="checkbox"/>
+TLS</li>
+<li><input disabled="" type="checkbox"/>
+OSCORE</li>
+<li><input disabled="" type="checkbox"/>
+WebSockets</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Blockwise Transfer
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Receiving large messages
+<ul>
+<li>Note: Handled in libcoap by setting <code>COAP_BLOCK_USE_LIBCOAP|COAP_BLOCK_SINGLE_BODY</code>.
+Manually constructing and managing blockwise transfers is currently not in scope
+for this library.</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+sending client-side large messages</li>
+<li><input disabled="" type="checkbox"/>
+sending server-side large messages</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+Resource observation
+<ul>
+<li><input disabled="" type="checkbox"/>
+Observing resources as a client</li>
+<li><input disabled="" type="checkbox" checked=""/>
+Notifying observers as a server</li>
+</ul>
+</li>
+</ul>
+<h2 id="building"><a class="doc-anchor" href="#building">§</a>Building</h2>
+<p>libcoap-rs is based on libcoap-sys, which provide many different ways to obtain and link against
+a system-provided or vendored version of the libcoap C library.</p>
+<p>Refer to <a href="libcoap_sys">its documentation</a> for detailed instructions on how to
+build libcoap-sys as well as this library.</p>
+<p>Most of these instructions can be applied to libcoap-rs directly, although libcoap-rs does
+abstract away some of the features.</p>
+<p>For your convenience, libcoap-rs “re-exports” some features that do not have any influence on
+the safe wrapper, but may have to be set in libcoap-sys to enable building (e.g., the
+<code>dtls-&lt;LIBRARY NAME&gt;-sys</code> features).
+This way, you don’t need to add libcoap-sys as a dependency yourself, and may just enable the
+feature in this crate instead.</p>
+<h2 id="examples"><a class="doc-anchor" href="#examples">§</a>Examples</h2><h3 id="client"><a class="doc-anchor" href="#client">§</a>Client</h3>
+<p>This example runs a simple CoAP client which makes a request to <code>coap://[::1]:5683/hello_world</code>
+and checks whether the result has the code 2.00 (Content) and the payload <code>Hello World!</code>.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::{
+    net::{SocketAddr, UdpSocket},
+    time::Duration,
+};
+
+<span class="kw">use </span>libcoap_rs::{
+    CoapContext,
+    message::{CoapMessageCommon, CoapResponse, CoapRequest},
+    protocol::{CoapRequestCode, CoapResponseCode, CoapMessageCode, CoapMessageType},
+    CoapRequestHandler, CoapResource,
+    session::{CoapSessionCommon, CoapClientSession},
+    types::{CoapUriScheme, CoapUri}
+};
+
+<span class="kw">let </span>server_address : SocketAddr = <span class="string">"[::1]:5683"</span>.parse().unwrap();
+
+<span class="comment">// Create a new context.
+</span><span class="kw">let </span><span class="kw-2">mut </span>context = CoapContext::new().expect(<span class="string">"Failed to create CoAP context"</span>);
+
+<span class="comment">// Connect to the server at the specified address over UDP (no encryption)
+</span><span class="kw">let </span>session = CoapClientSession::connect_udp(<span class="kw-2">&amp;mut </span>context, server_address)
+                .expect(<span class="string">"Failed to create client-side session"</span>);
+
+<span class="comment">// Create a new CoAP URI to request from.
+</span><span class="kw">let </span>uri = <span class="string">"coap://[::1]:5683/hello_world"</span>.parse().unwrap();
+
+<span class="comment">// Create a new request of type get with the specified URI.
+</span><span class="kw">let </span><span class="kw-2">mut </span>request = CoapRequest::new(CoapMessageType::Con, CoapRequestCode::Get, uri).unwrap();
+
+<span class="comment">// Send the request and wait for a response.
+</span><span class="kw">let </span>req_handle = session.send_request(request).expect(<span class="string">"Unable to send request"</span>);
+<span class="kw">loop </span>{
+    context.do_io(<span class="prelude-val">Some</span>(Duration::from_secs(<span class="number">10</span>))).expect(<span class="string">"error during IO"</span>);
+    <span class="comment">// Poll for responses to a request using the request handle.
+    </span><span class="kw">for </span>response <span class="kw">in </span>session.poll_handle(<span class="kw-2">&amp;</span>req_handle) {
+        <span class="macro">assert_eq!</span>(response.code(), CoapMessageCode::Response(CoapResponseCode::Content));
+        <span class="macro">assert_eq!</span>(response.data().unwrap().as_ref(), <span class="string">"Hello World!"</span>.as_bytes());
+        <span class="kw">return</span>;
+    }
+}</code></pre></div>
+<h3 id="server"><a class="doc-anchor" href="#server">§</a>Server</h3>
+<p>This example runs a simple CoAP server that provides a resource under the URI path
+<code>/hello_world</code> with <code>Hello World!</code> as the response payload.</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::{
+    net::{SocketAddr, UdpSocket},
+    time::Duration,
+};
+
+<span class="kw">use </span>libcoap_rs::{
+    CoapContext,
+    message::{CoapMessageCommon, CoapResponse, CoapRequest},
+    protocol::{CoapRequestCode, CoapResponseCode},
+    CoapRequestHandler, CoapResource,
+    session::{CoapSessionCommon, CoapServerSession},
+};
+
+<span class="comment">// a new CoAP context and bind to the generated SocketAddr.
+</span><span class="kw">let </span><span class="kw-2">mut </span>context = CoapContext::new().expect(<span class="string">"Failed to create CoAP context"</span>);
+context.add_endpoint_udp(<span class="string">"[::1]:5683"</span>.parse().unwrap()).expect(<span class="string">"Unable to add/bind to endpoint"</span>);
+
+<span class="comment">// Create a new resource that is available at the URI path `hello_world`
+// The second argument can be used to provide any kind of user-specific data, which will
+// then be passed to the handler function.
+</span><span class="kw">let </span>resource = CoapResource::new(<span class="string">"hello_world"</span>, (), <span class="bool-val">false</span>);
+<span class="comment">// Set a method handler for the GET method.
+</span>resource.set_method_handler(
+    CoapRequestCode::Get,
+    <span class="prelude-val">Some</span>(CoapRequestHandler::new(
+        <span class="comment">// The handler can be a lambda or some other kind of function.
+        // Using methods is also possible by setting the resource's user data to an instance
+        // of the struct, as the first argument will then be a mutable reference to the
+        // user data. Methods will then use this user data as the `&amp;mut self` reference.
+        //
+        // The provided CoapResponse is already filled with the correct token to be
+        // interpreted as a response to the correct request by the client.
+        </span>|completed: <span class="kw-2">&amp;mut </span>(), session: <span class="kw-2">&amp;mut </span>CoapServerSession, request: <span class="kw-2">&amp;</span>CoapRequest, <span class="kw-2">mut </span>response: CoapResponse| {
+            <span class="comment">// Set content of the response message to "Hello World!"
+            </span><span class="kw">let </span>data = Vec::&lt;u8&gt;::from(<span class="string">"Hello World!"</span>.as_bytes());
+            response.set_data(<span class="prelude-val">Some</span>(data));
+            <span class="comment">// Set the response code to 2.00 "Content"
+            </span>response.set_code(CoapResponseCode::Content);
+            <span class="comment">// Send the response message.
+            </span>session.send(response).expect(<span class="string">"Unable to send response"</span>);
+        },
+    )),
+);
+
+<span class="comment">// Add the resource to the context.
+</span>context.add_resource(resource);
+<span class="kw">loop </span>{
+    <span class="comment">// process IO in a loop...
+    </span><span class="kw">if let </span><span class="prelude-val">Err</span>(e) = context.do_io(<span class="prelude-val">Some</span>(Duration::from_secs(<span class="number">1</span>))) {
+        <span class="kw">break</span>;
+    }
+    <span class="comment">// ...until we want to shut down.
+</span>}
+<span class="comment">// Properly shut down, completing outstanding IO requests and properly closing sessions.
+</span>context.shutdown(<span class="prelude-val">Some</span>(Duration::from_secs(<span class="number">0</span>))).unwrap();</code></pre></div>
+</div></details><h2 id="modules" class="section-header">Modules<a href="#modules" class="anchor">§</a></h2><dl class="item-table"><dt><a class="mod" href="crypto/index.html" title="mod libcoap_rs::crypto">crypto</a></dt><dd>Cryptography interfaces and types.</dd><dt><a class="mod" href="error/index.html" title="mod libcoap_rs::error">error</a></dt><dd>Error types</dd><dt><a class="mod" href="message/index.html" title="mod libcoap_rs::message">message</a></dt><dd>Types related to message handling, parsing and creation.</dd><dt><a class="mod" href="prng/index.html" title="mod libcoap_rs::prng">prng</a></dt><dd>Module containing methods for accessing or configuring the libcoap PRNG.</dd><dt><a class="mod" href="protocol/index.html" title="mod libcoap_rs::protocol">protocol</a></dt><dd>Various types that are specified and defined in the CoAP standard and its extensions.</dd><dt><a class="mod" href="session/index.html" title="mod libcoap_rs::session">session</a></dt><dt><a class="mod" href="transport/index.html" title="mod libcoap_rs::transport">transport</a></dt><dt><a class="mod" href="types/index.html" title="mod libcoap_rs::types">types</a></dt><dd>Types required for conversion between libcoap C library abstractions and Rust types.</dd></dl><h2 id="macros" class="section-header">Macros<a href="#macros" class="anchor">§</a></h2><dl class="item-table"><dt><a class="macro" href="macro.resource_handler.html" title="macro libcoap_rs::resource_handler">resource_<wbr>handler</a></dt><dd>Create a CoapRequestHandler using the provided function.</dd></dl><h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2><dl class="item-table"><dt><a class="struct" href="struct.CoapContext.html" title="struct libcoap_rs::CoapContext">Coap<wbr>Context</a></dt><dd>A CoAP Context — container for general state and configuration information relating to CoAP</dd><dt><a class="struct" href="struct.CoapRequestHandler.html" title="struct libcoap_rs::CoapRequestHandler">Coap<wbr>Request<wbr>Handler</a></dt><dd>A handler for CoAP requests on a resource.</dd><dt><a class="struct" href="struct.CoapResource.html" title="struct libcoap_rs::CoapResource">Coap<wbr>Resource</a></dt><dd>Representation of a CoapResource that can be requested from a server.</dd></dl><h2 id="traits" class="section-header">Traits<a href="#traits" class="anchor">§</a></h2><dl class="item-table"><dt><a class="trait" href="trait.CoapEventHandler.html" title="trait libcoap_rs::CoapEventHandler">Coap<wbr>Event<wbr>Handler</a></dt><dd>Trait for CoAP event handlers.</dd></dl><script type="text/json" id="notable-traits-data">{"&[u8]":"<h3>Notable traits for <code>&amp;[<a class=\"primitive\" href=\"https://doc.rust-lang.org/nightly/std/primitive.u8.html\">u8</a>]</code></h3><pre><code><div class=\"where\">impl <a class=\"trait\" href=\"https://doc.rust-lang.org/nightly/std/io/trait.Read.html\" title=\"trait std::io::Read\">Read</a> for &amp;[<a class=\"primitive\" href=\"https://doc.rust-lang.org/nightly/std/primitive.u8.html\">u8</a>]</div>"}</script></section></div></main></body></html>

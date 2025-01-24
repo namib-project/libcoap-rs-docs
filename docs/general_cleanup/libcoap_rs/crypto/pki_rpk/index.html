@@ -1,0 +1,264 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Types and traits related to (D)TLS with raw public keys and/or public key infrastructure support for CoAP."><title>libcoap_rs::crypto::pki_rpk - Rust</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-6b053e98.ttf.woff2,FiraSans-Regular-0fe48ade.woff2,FiraSans-Medium-e1aa3f0a.woff2,SourceCodePro-Regular-8badfe75.ttf.woff2,SourceCodePro-Semibold-aa29a496.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-9960930a.css"><link rel="stylesheet" href="../../../static.files/rustdoc-5d1d17d0.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="libcoap_rs" data-themes="" data-resource-suffix="" data-rustdoc-version="1.86.0-nightly (99768c80a 2025-01-23)" data-channel="nightly" data-search-js="search-ccb196c1.js" data-settings-js="settings-0f613d39.js" ><script src="../../../static.files/storage-59e33391.js"></script><script defer src="../sidebar-items.js"></script><script defer src="../../../static.files/main-5f194d8c.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-893ab5e7.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-6580c154.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-044be391.svg"></head><body class="rustdoc mod"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle" title="show sidebar"></button></nav><nav class="sidebar"><div class="sidebar-crate"><h2><a href="../../../libcoap_rs/index.html">libcoap_<wbr>rs</a><span class="version">0.2.2</span></h2></div><div class="sidebar-elems"><section id="rustdoc-toc"><h2 class="location"><a href="#">Module pki_rpk</a></h2><h3><a href="#">Sections</a></h3><ul class="block top-toc"><li><a href="#examples" title="Examples">Examples</a></li></ul><h3><a href="#structs">Module Items</a></h3><ul class="block"><li><a href="#structs" title="Structs">Structs</a></li><li><a href="#enums" title="Enums">Enums</a></li><li><a href="#traits" title="Traits">Traits</a></li></ul></section><div id="rustdoc-modnav"><h2><a href="../index.html">In libcoap_<wbr>rs::<wbr>crypto</a></h2></div></div></nav><div class="sidebar-resizer"></div><main><div class="width-limiter"><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="main-heading"><span class="rustdoc-breadcrumbs"><a href="../../index.html">libcoap_rs</a>::<wbr><a href="../index.html">crypto</a></span><h1>Module <span>pki_rpk</span><button id="copy-path" title="Copy item path to clipboard">Copy item path</button></h1><rustdoc-toolbar></rustdoc-toolbar><span class="sub-heading"><a class="src" href="../../../src/libcoap_rs/crypto/pki_rpk/mod.rs.html#10-903">Source</a> </span></div><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><p>Types and traits related to (D)TLS with raw public keys and/or public key infrastructure support
+for CoAP.</p>
+<p>In order to configure PKI and/or RPK support, the following general steps need to be followed:</p>
+<ol>
+<li>Create a key definition for the desired DTLS variant, see <a href="pki_rpk::PkiKeyDef"><code>PkiKeyDef</code></a>
+and <a href="pki_rpk::RpkKeyDef"><code>RpkKeyDef</code></a> for more detailed information.</li>
+<li>Create a <a href="pki_rpk::PkiRpkContextBuilder"><code>PkiRpkContextBuilder</code></a> using the provided key and
+(optionally) make some additional configuration changes (see the builder struct
+documentation).</li>
+<li>Call <a href="pki_rpk::PkiRpkContextBuilder::build"><code>PkiRpkContextBuilder::build</code></a> to create a
+<a href="pki_rpk::PkiRpkContext"><code>PkiRpkContext</code></a>.</li>
+<li>Provide the created context to <a href="../../session/client/struct.CoapClientSession.html#method.connect_dtls" title="associated function libcoap_rs::session::client::CoapClientSession::connect_dtls"><code>CoapClientSession::connect_dtls</code></a>
+(for client-side sessions) or <a href="../../struct.CoapContext.html#method.set_pki_rpk_context" title="method libcoap_rs::CoapContext::set_pki_rpk_context"><code>CoapContext::set_pki_rpk_context</code></a>
+(for server-side sessions).</li>
+<li>On servers, run <a href="../../struct.CoapContext.html#method.add_endpoint_dtls" title="method libcoap_rs::CoapContext::add_endpoint_dtls"><code>CoapContext::add_endpoint_dtls</code></a> to
+add a DTLS endpoint.</li>
+</ol>
+<p>Note that <a href="pki_rpk::PkiRpkContextBuilder"><code>PkiRpkContextBuilder</code></a> uses generics with the marker
+structs <a href="pki_rpk::Pki"><code>Pki</code></a> and <a href="pki_rpk::Rpk"><code>Rpk</code></a> to statically indicate the DTLS variant
+and <a href="pki_rpk::NonCertVerifying"><code>NonCertVerifying</code></a> and <a href="pki_rpk::CertVerifying"><code>CertVerifying</code></a>
+to indicate whether the peer certificate should be verified (PKI only, RPK will always use
+<a href="pki_rpk::NonCertVerifying"><code>NonCertVerifying</code></a>).</p>
+<h2 id="examples"><a class="doc-anchor" href="#examples">§</a>Examples</h2>
+<p>Creating and connecting a client-side session with DTLS RPK configured:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>libcoap_rs::CoapContext;
+<span class="kw">use </span>libcoap_rs::crypto::pki_rpk::{NonCertVerifying, PkiRpkContextBuilder, Rpk, RpkKeyDef};
+<span class="kw">use </span>libcoap_rs::session::{CoapClientSession, CoapSession};
+
+<span class="comment">// RPK is only supported if the key is provided as a byte array in memory, providing file paths
+// directly is unsupported.
+</span><span class="kw">let </span>client_private_key = Vec::from(<span class="macro">include_str!</span>(<span class="string">"../../../resources/test-keys/client/client.key.pem"</span>));
+<span class="kw">let </span>client_public_key = Vec::from(<span class="macro">include_str!</span>(<span class="string">"../../../resources/test-keys/client/client.pub.pem"</span>));
+
+<span class="comment">// Create key definition.
+</span><span class="kw">let </span>client_key_def = RpkKeyDef::with_pem_memory(client_public_key, client_private_key);
+
+<span class="comment">// Create the cryptography context. Note that you might have to explicitly specify that
+// PKI certificate validation should not be performed, even though enabling it while passing a
+// RPK key definition is impossible due to a lack of a constructor for
+// `PkiRpkContextBuilder&lt;Rpk, CertVerifying&gt;`.
+// This is a type system limitation.
+</span><span class="kw">let </span>crypto_ctx = PkiRpkContextBuilder::&lt;<span class="kw">_</span>, NonCertVerifying&gt;::new(client_key_def);
+
+<span class="kw">let </span>key_validator = |asn1_public_key: <span class="kw-2">&amp;</span>[u8], session: <span class="kw-2">&amp;</span>CoapSession, validated: bool| {
+    <span class="kw">if </span>!validated {
+        <span class="bool-val">false
+    </span>} <span class="kw">else </span>{
+        <span class="comment">// Here, you would add code to validate that the peer's public key is actually the one you
+        // expect, and return either true (accept key) or false (reject key).
+        // `asn1_encoded_key` should be the certificate structure defined in
+        // [RFC 7250, section 3](https://datatracker.ietf.org/doc/html/rfc7250#section-3), which you
+        // might be able to parse with crates like
+        // [x509-cert](https://docs.rs/x509-cert/latest/x509_cert/index.html) and
+        // [spki](https://docs.rs/spki/0.7.3/spki/index.html) to obtain and match the
+        // SubjectPublicKeyInformation encoded within.
+        //
+        // Instead of using a lambda like this, you could also implement `RpkValidator` on any
+        // arbitrary type of your choice, e.g., a structure containing a storage of allowed public
+        // keys.
+    </span>}
+};
+
+<span class="comment">// Set the RPK validator and build the context.
+</span><span class="kw">let </span>crypto_ctx = crypto_ctx.rpk_validator(key_validator).build();
+
+<span class="kw">let </span><span class="kw-2">mut </span>coap_ctx = CoapContext::new().expect(<span class="string">"unable to create CoAP context"</span>);
+<span class="kw">let </span>session = CoapClientSession::connect_dtls(<span class="kw-2">&amp;mut </span>coap_ctx, <span class="string">"example.com:5684"</span>.parse().unwrap(), crypto_ctx);
+
+<span class="comment">// The session might not be immediately established, but you can already create and send
+// requests as usual after this point.
+// To check for errors and/or disconnections, you might want to call and check the return value
+// of `session.state()` occasionally.
+// For error handling, you might also want to register an event handler with the CoAP context.
+// Remaining code omitted for brevity, see the crate-level docs for a full example of client
+// operation.</span></code></pre></div>
+<p>Creating a server that supports DTLS RPK configured:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>libcoap_rs::CoapContext;
+<span class="kw">use </span>libcoap_rs::crypto::pki_rpk::{NonCertVerifying, PkiRpkContextBuilder, Rpk, RpkKeyDef};
+<span class="kw">use </span>libcoap_rs::session::{CoapClientSession, CoapSession};
+
+<span class="kw">fn </span>key_validator(asn1_public_key: <span class="kw-2">&amp;</span>[u8], session: <span class="kw-2">&amp;</span>CoapSession, validated: bool) -&gt; bool {
+    <span class="comment">// Here, you would add code to validate that the peer's public key is actually the one you
+    // expect, and return either true (accept key) or false (reject key).
+    // `asn1_encoded_key` should be the certificate structure defined in
+    // [RFC 7250, section 3](https://datatracker.ietf.org/doc/html/rfc7250#section-3), which you
+    // might be able to parse with crates like
+    // [x509-cert](https://docs.rs/x509-cert/latest/x509_cert/index.html) and
+    // [spki](https://docs.rs/spki/0.7.3/spki/index.html) to obtain and match the
+    // SubjectPublicKeyInformation encoded within.
+    //
+    // Instead of using a function like this, you could also implement `RpkValidator` on any
+    // arbitrary type of your choice, e.g., a structure containing a storage of allowed public
+    // keys.
+</span>}
+
+<span class="comment">// RPK is only supported if the key is provided as a byte array in memory, providing file paths
+// directly is unsupported.
+</span><span class="kw">let </span>server_private_key = Vec::from(<span class="macro">include_str!</span>(<span class="string">"../../../resources/test-keys/server/server.key.pem"</span>));
+<span class="kw">let </span>server_public_key = Vec::from(<span class="macro">include_str!</span>(<span class="string">"../../../resources/test-keys/server/server.pub.pem"</span>));
+
+<span class="comment">// Create key definition.
+</span><span class="kw">let </span>server_key_def = RpkKeyDef::with_pem_memory(server_public_key, server_private_key);
+
+<span class="comment">// Create the cryptography context. Note that you might have to explicitly specify that
+// PKI certificate validation should not be performed, even though enabling it while passing a
+// RPK key definition is impossible due to a lack of a constructor for
+// `PkiRpkContextBuilder&lt;Rpk, CertVerifying&gt;`.
+// This is a type system limitation.
+</span><span class="kw">let </span>crypto_ctx = PkiRpkContextBuilder::&lt;<span class="kw">_</span>, NonCertVerifying&gt;::new(server_key_def);
+<span class="comment">// Set the RPK validator and build the context.
+</span><span class="kw">let </span>crypto_ctx = crypto_ctx.rpk_validator(key_validator).build();
+
+<span class="kw">let </span><span class="kw-2">mut </span>coap_ctx = CoapContext::new().expect(<span class="string">"unable to create CoAP context"</span>);
+coap_ctx.set_pki_rpk_context(crypto_ctx);
+coap_ctx.add_endpoint_dtls(<span class="string">"[::1]:5684"</span>.parse().unwrap()).expect(<span class="string">"unable to create DTLS endpoint"</span>);
+
+<span class="comment">// For error handling, you might want to register an event handler with the CoAP context.
+// Remaining code omitted for brevity, see the crate-level docs for a full example of server
+// operation.</span></code></pre></div>
+<p>Creating and connecting a client-side session with DTLS PKI configured:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::ffi::{c_uint, CStr};
+<span class="kw">use </span>std::net::SocketAddr;
+<span class="kw">use </span>libcoap_rs::CoapContext;
+<span class="kw">use </span>libcoap_rs::crypto::pki_rpk::{CertVerifying, PkiKeyDef, PkiRpkContextBuilder};
+<span class="kw">use </span>libcoap_rs::session::{CoapClientSession, CoapSession};
+<span class="kw">use </span>std::ffi::CString;
+
+<span class="comment">// Paths to private key and certificate.
+// The certificate may also contain intermediates. However, they might *not* be provided to the
+// peer (i.e., the peer might have to already know all intermediates beforehand in order for
+// validation to succeed).
+</span><span class="kw">let </span>client_private_key = <span class="string">"../../../resources/test-keys/client/client.key.pem"</span>;
+<span class="kw">let </span>client_public_cert = <span class="string">"../../../resources/test-keys/client/client.crt.pem"</span>;
+
+<span class="comment">// Create key definition.
+// Note: the first argument (`ca_cert`) is not used to send intermediates and root certificates
+// to the peer (unlike what you might expect if you have experience setting up HTTP servers).
+// It is exclusively used to determine a list of CA names that a server will provide to a client
+// to indicate to it which certificates it should send.
+// For client-side operation, `ca_cert` is not used.
+</span><span class="kw">let </span>client_key_def = PkiKeyDef::with_pem_files(
+                        <span class="prelude-val">None</span>::&lt;String&gt;,
+                        client_public_cert,
+                        client_private_key);
+
+<span class="comment">// The name of the server we want to connect to.
+</span><span class="kw">let </span>server_name = <span class="string">"example.com"</span>;
+
+<span class="comment">// Validator function for certificate common names.
+// Typically, this function should have the following behavior:
+// - If !validated, something went wrong during TLS-level certificate checks, so reject.
+// - If depth == 0, we are checking the client certificate, whose common name should equal the
+//   server name we want to connect to, return the equality check result.
+// - If depth &gt; 0, we are checking an intermediate or root CA certificate. As we usually trust
+//   all CAs in the trust store and validation of those is already performed by the TLS library,
+//   always accept.
+</span><span class="kw">let </span>c_server_name = CString::new(server_name).unwrap();
+<span class="kw">let </span>cn_validator = |
+     cn: <span class="kw-2">&amp;</span>CStr,
+     asn1_public_cert: <span class="kw-2">&amp;</span>[u8],
+     session: <span class="kw-2">&amp;</span>CoapSession,
+     depth: c_uint,
+     validated: bool| {
+    <span class="kw">if </span>!validated {
+        <span class="bool-val">false
+    </span>} <span class="kw">else if </span>depth == <span class="number">0 </span>{
+        cn == c_server_name.as_c_str()
+    } <span class="kw">else </span>{
+        <span class="bool-val">true
+    </span>}
+};
+
+<span class="comment">// Create the cryptography context. Note that you must explicitly specify whether
+// PKI certificate validation should be performed using the context builder's generics.
+</span><span class="kw">let </span>crypto_ctx = PkiRpkContextBuilder::&lt;<span class="kw">_</span>, CertVerifying&gt;::new(client_key_def)
+                 <span class="comment">// Provide the server with a Server Name Indication (might be required by
+                 // some servers to use the right certificate).
+                 </span>.client_sni(server_name).unwrap()
+                 <span class="comment">// Use the CN validator we defined earlier.
+                 </span>.cn_validator(cn_validator)
+                 <span class="comment">// Enable certificate chain validation (in case you have intermediate CAs) and set
+                 // verification depth (recommended value here is 3).
+                 </span>.cert_chain_validation(<span class="number">3</span>)
+                 .build();
+
+<span class="kw">let </span><span class="kw-2">mut </span>coap_ctx = CoapContext::new().expect(<span class="string">"unable to create CoAP context"</span>);
+<span class="kw">let </span>session = CoapClientSession::connect_dtls(
+             <span class="kw-2">&amp;mut </span>coap_ctx,
+             SocketAddr::new(server_name.parse().expect(<span class="string">"error in name resolution"</span>), <span class="number">5684</span>),
+             crypto_ctx);
+
+<span class="comment">// The session might not be immediately established, but you can already create and send
+// requests as usual after this point.
+// To check for errors and/or disconnections, you might want to call and check the return value
+// of `session.state()` occasionally.
+// For error handling, you might also want to register an event handler with the CoAP context.
+// Remaining code omitted for brevity, see the crate-level docs for a full example of client
+// operation.</span></code></pre></div>
+<p>Creating a server that supports DTLS RPK configured:</p>
+
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">use </span>std::ffi::{c_uint, CStr};
+<span class="kw">use </span>std::net::SocketAddr;
+<span class="kw">use </span>libcoap_rs::CoapContext;
+<span class="kw">use </span>libcoap_rs::crypto::pki_rpk::{CertVerifying, PkiKeyDef, PkiRpkContextBuilder, KeyDef, Pki};
+<span class="kw">use </span>libcoap_rs::session::{CoapClientSession, CoapSession};
+<span class="kw">use </span>std::ffi::CString;
+
+<span class="comment">// Paths to private key and certificate.
+// The certificate may also contain intermediates. However, they might *not* be provided to the
+// peer (i.e., the peer might have to already know all intermediates beforehand in order for
+// validation to succeed).
+</span><span class="kw">let </span>server_private_key = <span class="string">"../../../resources/test-keys/server/server.key.pem"</span>;
+<span class="kw">let </span>server_public_cert = <span class="string">"../../../resources/test-keys/server/server.crt.pem"</span>;
+<span class="kw">let </span>ca_cert = <span class="string">"../../../resources/test-keys/ca/ca.crt.pem"</span>;
+
+<span class="comment">// Create key definition.
+// Note: the first argument (`ca_cert`) is not used to send intermediates and root certificates
+// to the peer (unlike what you might expect if you have experience setting up HTTP servers).
+// It is exclusively used to determine a list of CA names that a server will provide to a client
+// to indicate to it which certificates it should send.
+</span><span class="kw">let </span>server_key_def = PkiKeyDef::with_pem_files(<span class="prelude-val">Some</span>(ca_cert), server_public_cert, server_private_key);
+
+<span class="comment">// The name of the server we use.
+</span><span class="kw">let </span>server_name = <span class="string">"example.com"</span>;
+
+<span class="comment">// Key provider for Server Name Indications.
+// If the client provides a server name using the Server Name Indication extension, this
+// callback is called to determine the key the server should use instead of the one provided as
+// the default to `PkiRpkContextBuilder::new`.
+// Typically, you would want to maintain a map from potential server names to key definitions,
+// and return either `Some(Box::new(key))` for the appropriate map entry or `None` if the server
+// name is unknown.
+</span><span class="kw">let </span>c_server_name = CString::new(server_name).unwrap();
+<span class="kw">let </span>sni_cb = |sni: <span class="kw-2">&amp;</span>CStr| -&gt; <span class="prelude-ty">Option</span>&lt;Box&lt;<span class="kw">dyn </span>KeyDef&lt;KeyType = Pki&gt;&gt;&gt; {
+    (sni == c_server_name.as_c_str()).then_some(Box::new(server_key_def.clone()))
+};
+
+<span class="comment">// Just like the client, the server may also have a CN validator defined to determine whether
+// the common name of the client is acceptable. Here, we omit this validator for brevity.
+
+// Create the cryptography context. Note that you must explicitly specify whether
+// PKI certificate validation should be performed using the context builder's generics.
+</span><span class="kw">let </span>crypto_ctx = PkiRpkContextBuilder::&lt;<span class="kw">_</span>, CertVerifying&gt;::new(server_key_def.clone())
+                 .sni_key_provider(sni_cb)
+                 <span class="comment">// Enable certificate chain validation (in case you have intermediate CAs) and set
+                 // verification depth (recommended value here is 3).
+                 </span>.cert_chain_validation(<span class="number">3</span>)
+                 .build();
+
+<span class="kw">let </span><span class="kw-2">mut </span>coap_ctx = CoapContext::new().expect(<span class="string">"unable to create CoAP context"</span>);
+coap_ctx.set_pki_rpk_context(crypto_ctx);
+coap_ctx.add_endpoint_dtls(<span class="string">"[::1]:5684"</span>.parse().unwrap()).expect(<span class="string">"unable to create DTLS endpoint"</span>);
+
+<span class="comment">// For error handling, you might want to register an event handler with the CoAP context.
+// Remaining code omitted for brevity, see the crate-level docs for a full example of server
+// operation.</span></code></pre></div>
+</div></details><h2 id="structs" class="section-header">Structs<a href="#structs" class="anchor">§</a></h2><dl class="item-table"><dt><a class="struct" href="struct.CertVerifying.html" title="struct libcoap_rs::crypto::pki_rpk::CertVerifying">Cert<wbr>Verifying</a></dt><dd>Marker indicating that a cryptographic context does perform TLS library-side certificate
+verification.</dd><dt><a class="struct" href="struct.DerFileKeyComponent.html" title="struct libcoap_rs::crypto::pki_rpk::DerFileKeyComponent">DerFile<wbr>KeyComponent</a></dt><dd>Key component that is stored in a DER-encoded file with the given path.</dd><dt><a class="struct" href="struct.DerMemoryKeyComponent.html" title="struct libcoap_rs::crypto::pki_rpk::DerMemoryKeyComponent">DerMemory<wbr>KeyComponent</a></dt><dd>Key component that is stored in memory as a DER-encoded sequence of bytes.</dd><dt><a class="struct" href="struct.EngineKeyComponent.html" title="struct libcoap_rs::crypto::pki_rpk::EngineKeyComponent">Engine<wbr>KeyComponent</a></dt><dd>Key component that is passed to the TLS library verbatim (only supported by OpenSSL).</dd><dt><a class="struct" href="struct.NonCertVerifying.html" title="struct libcoap_rs::crypto::pki_rpk::NonCertVerifying">NonCert<wbr>Verifying</a></dt><dd>Marker indicating that a cryptographic context does not do TLS library-side certificate
+verification.</dd><dt><a class="struct" href="struct.PemFileKeyComponent.html" title="struct libcoap_rs::crypto::pki_rpk::PemFileKeyComponent">PemFile<wbr>KeyComponent</a></dt><dd>Key component that is stored in a PEM-encoded file with the given path.</dd><dt><a class="struct" href="struct.PemMemoryKeyComponent.html" title="struct libcoap_rs::crypto::pki_rpk::PemMemoryKeyComponent">PemMemory<wbr>KeyComponent</a></dt><dd>Key component that is stored in memory as a PEM-encoded sequence of bytes.</dd><dt><a class="struct" href="struct.Pkcs11KeyComponent.html" title="struct libcoap_rs::crypto::pki_rpk::Pkcs11KeyComponent">Pkcs11<wbr>KeyComponent</a></dt><dd>Key component that is stored as a PKCS11 URI.</dd><dt><a class="struct" href="struct.Pki.html" title="struct libcoap_rs::crypto::pki_rpk::Pki">Pki</a></dt><dd>(Marker) key type for keys with a certificate signed by a trusted CA.</dd><dt><a class="struct" href="struct.PkiKeyDef.html" title="struct libcoap_rs::crypto::pki_rpk::PkiKeyDef">PkiKey<wbr>Def</a></dt><dd>Key definition for a DTLS key consisting of a private key and a CA-signed certificate.</dd><dt><a class="struct" href="struct.PkiRpkContext.html" title="struct libcoap_rs::crypto::pki_rpk::PkiRpkContext">PkiRpk<wbr>Context</a></dt><dd>A configuration context for PKI or RPK based DTLS operation.</dd><dt><a class="struct" href="struct.PkiRpkContextBuilder.html" title="struct libcoap_rs::crypto::pki_rpk::PkiRpkContextBuilder">PkiRpk<wbr>Context<wbr>Builder</a></dt><dd>Builder for a PKI or RPK configuration context.</dd><dt><a class="struct" href="struct.Rpk.html" title="struct libcoap_rs::crypto::pki_rpk::Rpk">Rpk</a></dt><dd>(Marker) key type for asymmetric DTLS keys not signed by a CA (raw public keys).</dd><dt><a class="struct" href="struct.RpkKeyDef.html" title="struct libcoap_rs::crypto::pki_rpk::RpkKeyDef">RpkKey<wbr>Def</a></dt><dd>Key definition for a DTLS key consisting of a private and public key component without a signed
+certificate.</dd></dl><h2 id="enums" class="section-header">Enums<a href="#enums" class="anchor">§</a></h2><dl class="item-table"><dt><a class="enum" href="enum.Asn1PrivateKeyType.html" title="enum libcoap_rs::crypto::pki_rpk::Asn1PrivateKeyType">Asn1<wbr>Private<wbr>KeyType</a></dt><dd>Private key type for DER/ASN.1 encoded keys.</dd><dt><a class="enum" href="enum.ServerPkiRpkCryptoContext.html" title="enum libcoap_rs::crypto::pki_rpk::ServerPkiRpkCryptoContext">Server<wbr>PkiRpk<wbr>Crypto<wbr>Context</a></dt><dd>A context configuration for server-side PKI or RPK based DTLS encryption.</dd></dl><h2 id="traits" class="section-header">Traits<a href="#traits" class="anchor">§</a></h2><dl class="item-table"><dt><a class="trait" href="trait.CertVerificationMode.html" title="trait libcoap_rs::crypto::pki_rpk::CertVerificationMode">Cert<wbr>Verification<wbr>Mode</a></dt><dd>Trait for markers that indicate whether a PKI/RPK DTLS context performs certificate validation.</dd><dt><a class="trait" href="trait.KeyComponent.html" title="trait libcoap_rs::crypto::pki_rpk::KeyComponent">KeyComponent</a></dt><dd>Trait indicating that a type can be used as a DTLS key component of the given <a href="trait.KeyType.html" title="trait libcoap_rs::crypto::pki_rpk::KeyType"><code>KeyType</code></a> <code>KTY</code>.</dd><dt><a class="trait" href="trait.KeyDef.html" title="trait libcoap_rs::crypto::pki_rpk::KeyDef">KeyDef</a></dt><dd>Trait for types that can be used as a libcoap DTLS asymmetric key definition (RPK or PKI).</dd><dt><a class="trait" href="trait.KeyType.html" title="trait libcoap_rs::crypto::pki_rpk::KeyType">KeyType</a></dt><dd>Trait for marker structs that describe different types of asymmetric DTLS keys (RPK or PKI).</dd><dt><a class="trait" href="trait.PkiCnValidator.html" title="trait libcoap_rs::crypto::pki_rpk::PkiCnValidator">PkiCn<wbr>Validator</a></dt><dd>Trait for types that can check whether a peer’s or CA certificate’s common name is allowed/as
+expected for a session.</dd><dt><a class="trait" href="trait.PkiRpkSniKeyProvider.html" title="trait libcoap_rs::crypto::pki_rpk::PkiRpkSniKeyProvider">PkiRpk<wbr>SniKey<wbr>Provider</a></dt><dd>Trait for things that can provide RPK/PKI DTLS keys for a given Server Name Indication.</dd><dt><a class="trait" href="trait.RpkValidator.html" title="trait libcoap_rs::crypto::pki_rpk::RpkValidator">RpkValidator</a></dt><dd>Trait for types that can validate that a raw public key is the one expected for a given peer.</dd></dl></section></div></main></body></html>
