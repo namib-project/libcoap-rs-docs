@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["ContextConfigurationError","EndpointCreationError","IoProcessError","MessageCodeError","MessageConversionError","MessageCreationError","MessageTypeError","MulticastGroupJoinError","MulticastHopLimitError","OptionCreationError","OptionValueError","RngError","SessionCreationError","SessionGetAppDataError","UnknownOptionError","UriParsingError"]};

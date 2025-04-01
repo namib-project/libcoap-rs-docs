@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CoapOption"],"mod":["request","response"],"struct":["CoapMessage"],"trait":["CoapMessageCommon"]};
