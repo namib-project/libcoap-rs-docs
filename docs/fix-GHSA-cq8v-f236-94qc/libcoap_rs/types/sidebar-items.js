@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"enum":["CoapProtocol","CoapUriScheme"],"struct":["CoapUri"],"type":["CoapMessageId","IfIndex","MaxRetransmit"]};
